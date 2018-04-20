@@ -1,3 +1,8 @@
+<script assets='js/jquery.min.js'></script>
+<script assets='js/bootstrap.min.js'></script>
+<script assets='js/scripts.js'></script>
+<link assets='src/css/bootstrap.css' rel='stylesheet'>
+
 <!-- Navbar
     ================================================== -->
 <div class="cbp-af-header">
