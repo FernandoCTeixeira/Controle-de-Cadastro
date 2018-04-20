@@ -1,8 +1,9 @@
-<%-- 
+<%--
     Document   : consultas
     Created on : 19/04/2018, 08:56:21
     Author     : ASUS
 --%>
+
 <%@page import="br.com.fatecpg.controlcadastro.BdCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     </head>
     <body>
         <!-- Barra de navegação -->
-        <%@include file="WEB-INF/jspf/navbar.jspf" %>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1> Consulta à Lista de cadastrados</h1>
         <fieldset>
                     <form action="">
@@ -24,5 +25,6 @@
                     </form>
         </fieldset>
         <h3> Esta página é pra listar a relação de cadastrados!!!!!</h3>
+        <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>

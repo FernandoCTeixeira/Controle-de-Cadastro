@@ -36,6 +36,7 @@
         <title>Cadastro fornecedor</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>CADASTRO DE FORNECEDOR</h1>
         <fieldset>
             <lengend>Incluir Fornecedor</lengend>
@@ -75,5 +76,6 @@
             </tr>
             <%}%>
         </table>
+        <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>

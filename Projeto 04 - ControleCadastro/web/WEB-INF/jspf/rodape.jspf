@@ -1,0 +1,22 @@
+ <!-- Footer
+ ================================================== -->
+  <footer class="footer">
+    <div class="subfooter">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+              
+            <center>
+              <div >
+                
+                <div class="credits" ><br><br>
+                 Controle de Cadastros | FATEC 4º Ciclo ADS de 2018
+                </div>
+              </div>
+            </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </footer>

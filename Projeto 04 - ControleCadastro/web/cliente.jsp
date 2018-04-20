@@ -35,6 +35,7 @@
         <title>Cadastro cliente</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>CADASTRO DE CLIENTE</h1>
         <fieldset>
             <lengend>Incluir Contato</lengend>
@@ -73,5 +74,6 @@
             </tr>
             <%}%>
         </table>
+        <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>
