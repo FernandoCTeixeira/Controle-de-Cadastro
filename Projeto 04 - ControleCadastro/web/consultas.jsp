@@ -3,6 +3,7 @@
     Created on : 19/04/2018, 08:56:21
     Author     : ASUS
 --%>
+<!--Agora é hora dos ajustes...-->
 
 <%@page import="br.com.fatecpg.controlcadastro.BdCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -3,6 +3,7 @@
     Created on : 18/04/2018, 02:43:28
     Author     : Fernando
 --%>
+<!--Agora é hora dos ajustes...-->
 
 <%@page import="br.com.fatecpg.controlcadastro.BdCliente"%>
 <%@page import="br.com.fatecpg.controlcadastro.Cliente"%>
