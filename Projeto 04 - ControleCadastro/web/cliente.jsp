@@ -58,10 +58,14 @@
         <br><br>
         <br><br><br>
         <center>
+            
+            
+                     
         <h1>CADASTRO DE CLIENTE</h1>
         <fieldset>
             <lengend>Incluir Contato</lengend>
             <form>
+                
                 <table align="center">
                     <tr><th>Nome:</th><td><input type="text" name="nome"/></td></tr>
                     <tr><th>Cpf:</th><td><input type="text" name="cpf"/></td></tr>
@@ -73,6 +77,7 @@
                 </table>
             </form>
         </fieldset>
+        
         <hr>
         <table border="1">
             <tr><th>Indice</th><th>Nome</th><th>Cpf</th><th>Rg</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>-</th></tr>
@@ -96,6 +101,7 @@
             </tr>
             <%}%>
         </table>
+        
         <br>
         </center>
         </section>
