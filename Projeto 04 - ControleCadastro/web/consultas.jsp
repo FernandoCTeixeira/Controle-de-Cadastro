@@ -41,8 +41,9 @@
         <h1> Consulta à Lista de cadastrados</h1>
         <fieldset>
                     <form action="">
-                        <input type="radio" name="opcao" value="op1"> Listar Clientes
-                        <input type="radio" name="opcao" value="op2"> Listar Forneceres<br><br> 
+                        <br>
+                        <input type="radio" name="opcao" style = "border: 1px solid #00ff00;" value="op1"> Listar Clientes
+                        <input type="radio" name="opcao" style = "border: 1px solid #00ff00;" value="op2"> Listar Forneceres<br><br> 
                         <input type="submit" name="lista" value="Listar">
                     </form>
         </fieldset>

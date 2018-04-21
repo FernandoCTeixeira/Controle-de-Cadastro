@@ -64,13 +64,14 @@
         <fieldset>
             <lengend>Incluir Fornecedor</lengend>
             <form>
+                <br>
                 <table align="center">
-                    <tr><th>Nome:</th><td><input type="text" name="nome"/></td></tr>
-                    <tr><th>Razão Social:</th><td><input type="text" name="razaoSocial"/></td></tr>
-                    <tr><th>Cnpj:</th><td><input type="text" name="cnpj"/></td></tr>
-                    <tr><th>Email:</th><td><input type="email" name="email"/></td></tr>
-                    <tr><th>Telefone:</th><td><input type="text" name="telefone"/></td></tr>
-                    <tr><th>Endereço:</th><td><input type="text" name="endereco"/></td></tr>
+                    <tr><th>Nome:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="nome"/></td></tr>
+                    <tr><th>Razão Social:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="razaoSocial"/></td></tr>
+                    <tr><th>Cnpj:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="cnpj"/></td></tr>
+                    <tr><th>Email:</th><td><input type="email" style = "border: 1px solid #00ff00;" name="email"/></td></tr>
+                    <tr><th>Telefone:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="telefone"/></td></tr>
+                    <tr><th>Endereço:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="endereco"/></td></tr>
                     <tr align="center"><td colspan="2"><input type="submit" name="add" value="Adicionar"/></td></tr>
                 </table>
             </form>
