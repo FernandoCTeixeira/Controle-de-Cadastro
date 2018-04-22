@@ -36,15 +36,37 @@
         <br><br>
         <br><br><br>
         <center>
-        <h1>Hello World!</h1>
-        <br>
+        <h1>COLABORADORES</h1>
+        <table>
+            <tr>
+            <tr>
+                <td><a href="https://www.linkedin.com/in/fct0316/" target="_blank"><img width="200" height="200" src="assets/img/FernandoCostA.jpg" alt=""/></a></td>
+                
+                <td><a href="https://www.linkedin.com/in/ivan-felipe-miranda-da-mota-5036ab33/" target="_blank"><img width="200" height="200" src="assets/img/IvanFelipe.jpg" alt=""/></a></td>
+            </tr>
+            
+            <tr>
+                <td><a href="https://www.linkedin.com/in/fct0316/" target="_blank"><h3>Fernando Costa</h3></a></td>
+                
+                <td><a href="https://www.linkedin.com/in/ivan-felipe-miranda-da-mota-5036ab33/" target="_blank"><h3>Felipe Motta</h3></a></td>
+            </tr>
+            <tr><br><br></tr>
+            <tr>
+                <td><a href="https://www.linkedin.com/in/nilson-jos%C3%A9-de-lima-46a03822/" target="_blank"><img width="200" height="200" src="assets/img/Nilson.jpg" alt=""/></a></td>
+           
+                <td><a href="https://www.facebook.com/patrick.donnarumma.7" target="_blank"><img width="200" height="200" src="assets/img/AvataR.jpg" alt=""/></a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.linkedin.com/in/nilson-jos%C3%A9-de-lima-46a03822/" target="_blank"><h3>Nilson Lima</h3></a></td>
+                <td><a href="https://www.facebook.com/patrick.donnarumma.7" target="_blank"><h3>Patrick Donnarumma</h3></a></td>
+            </tr>
+        </table>
         <br><br>
         <br><br><br>
         <br><br>
         <br><br><br>
         <br><br>
-        <br><br><br>
-        <br>
+ 
         </center>
         </section>
         <%@include file="WEB-INF/jspf/rodape.jspf" %>
