@@ -11,9 +11,17 @@
 <!DOCTYPE html>
 
 <%
+    int index = 0;
+    Cliente c = new Cliente();
+    c.setNome("");
+    c.setCpf("");
+    c.setRg("");
+    c.setEmail("");
+    c.setTelefone("");
+    c.setEndereco("");
     if(request.getParameter("add") != null)
     {
-        Cliente c = new Cliente();
+        //Cliente c = new Cliente();
         c.setNome(request.getParameter("nome"));
         c.setCpf(request.getParameter("cpf"));
         c.setRg(request.getParameter("rg"));
@@ -26,6 +34,29 @@
     if(request.getParameter("del") != null)
     {
         BdCliente.getClienteList().remove(Integer.parseInt(request.getParameter("i")));
+        response.sendRedirect(request.getRequestURI());
+    }
+    if(request.getParameter("alt") !=null)
+    {
+        //Cliente d = new Cliente();
+        c.setNome(BdCliente.getClienteList().get(Integer.parseInt(request.getParameter("i"))).getNome());
+        c.setCpf(BdCliente.getClienteList().get(Integer.parseInt(request.getParameter("i"))).getCpf());
+        c.setRg(BdCliente.getClienteList().get(Integer.parseInt(request.getParameter("i"))).getRg());
+        c.setEmail(BdCliente.getClienteList().get(Integer.parseInt(request.getParameter("i"))).getEmail());
+        c.setTelefone(BdCliente.getClienteList().get(Integer.parseInt(request.getParameter("i"))).getTelefone());
+        c.setEndereco(BdCliente.getClienteList().get(Integer.parseInt(request.getParameter("i"))).getEndereco());
+        index = Integer.parseInt(request.getParameter("i"));
+    }
+    if(request.getParameter("sal") != null)
+    {
+        //Cliente c = new Cliente();
+        c.setNome(request.getParameter("nome"));
+        c.setCpf(request.getParameter("cpf"));
+        c.setRg(request.getParameter("rg"));
+        c.setEmail(request.getParameter("email"));
+        c.setTelefone(request.getParameter("telefone"));
+        c.setEndereco(request.getParameter("endereco"));
+        BdCliente.clienteList.set(Integer.parseInt(request.getParameter("index")), c);
         response.sendRedirect(request.getRequestURI());
     }
 
@@ -63,27 +94,72 @@
                      
         <h1>CADASTRO DE CLIENTE</h1>
         <fieldset>
-            <lengend>Incluir Contato</lengend>
+            <%
+                      if(request.getParameter("alt") != null)
+                      {
+                    %>
+                        <lengend>Alterar Contato</lengend>
+                    <%
+                      }
+                      else
+                      {
+                    %>
+                        <lengend>Incluir Contato</lengend>
+                    <%
+                      }
+                    %>
             <form>
                 <br>
                 <table align="center">
-                    <tr><th>Nome:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="nome"/></td></tr>
-                    <tr><th>Cpf:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="cpf"/></td></tr>
-                    <tr><th>Rg:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="rg"/></td></tr>
-                    <tr><th>Email:</th><td><input type="email" style = "border: 1px solid #00ff00;" name="email"/></td></tr>
-                    <tr><th>Telefone:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="telefone"/></td></tr>
-                    <tr><th>Endereço:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="endereco"/></td></tr>
-                    <tr align="center"><td colspan="2"><input type="submit" name="add" value="Adicionar"/></td></tr>
+                    <tr><th>Nome:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="nome" value="<%= c.getNome() %>"/></td></tr>
+                    <tr><th>Cpf:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="cpf" value="<%= c.getCpf()%>"/></td></tr>
+                    <tr><th>Rg:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="rg" value="<%= c.getRg() %>"/></td></tr>
+                    <tr><th>Email:</th><td><input type="email" style = "border: 1px solid #00ff00;" name="email" value="<%= c.getEmail() %>"/></td></tr>
+                    <tr><th>Telefone:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="telefone" value="<%= c.getTelefone() %>"/></td></tr>
+                    <tr><th>Endereço:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="endereco" value="<%= c.getEndereco() %>"/></td></tr>
+                    <%
+                      if(request.getParameter("alt") != null)
+                      {
+                    %>
+                        <tr align="center"><td colspan="2">
+                                <input type="submit" name="sal" value="Salvar"/>
+                                <input type="hidden" name="index" value="<%=index%>">
+                            </td></tr>
+                    <%
+                      }
+                      else
+                      {
+                    %>
+                        <tr align="center"><td colspan="2"><input type="submit" name="add" value="Adicionar"/></td></tr>
+                    <%
+                      }
+                    %>
                 </table>
             </form>
         </fieldset>
         
         <hr>
+        <form>
+            Pesquisar
+            <br>
+            <input type="text" style = "border: 1px solid #00ff00;" name="parametro"/>
+            <input type="submit" name="bus" value="Buscar"/>
+        </form>
         <table border="1">
             <tr><th>Indice</th><th>Nome</th><th>Cpf</th><th>Rg</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>-</th></tr>
-            <%for(int i = 0; i < BdCliente.getClienteList().size(); i++){%>
+            <%
+                if(request.getParameter("bus") != null && request.getParameter("parametro") != null){
+                for(int i = 0; i < BdCliente.getClienteList().size(); i++){
+                    if(request.getParameter("parametro").equals(BdCliente.getClienteList().get(i).getNome())||
+                       request.getParameter("parametro").equals(BdCliente.getClienteList().get(i).getCpf())||
+                       request.getParameter("parametro").equals(BdCliente.getClienteList().get(i).getRg())||
+                       request.getParameter("parametro").equals(BdCliente.getClienteList().get(i).getEmail())||
+                       request.getParameter("parametro").equals(BdCliente.getClienteList().get(i).getTelefone())||
+                       request.getParameter("parametro").equals(BdCliente.getClienteList().get(i).getEndereco())
+                      ){
+            %>
             <tr>
-                <td><%=i%></td>
+                <td><%=i+1%></td>
                 
                 <td><%=BdCliente.getClienteList().get(i).getNome()%></td>
                 <td><%=BdCliente.getClienteList().get(i).getCpf()%></td>
@@ -91,15 +167,38 @@
                 <td><%=BdCliente.getClienteList().get(i).getEmail()%></td>
                 <td><%=BdCliente.getClienteList().get(i).getTelefone()%></td>
                 <td><%=BdCliente.getClienteList().get(i).getEndereco()%></td>
-                
                 <td>
                     <form>
                         <input type="hidden" name="i" value="<%=i%>">
+                        <input type="submit" name="alt" value="Alterar">
                         <input type="submit" name="del" value="Excluir">
                     </form>
                 </td>
             </tr>
-            <%}%>
+            <%      } }
+                }
+                else
+                {
+                    for(int i = 0; i < BdCliente.getClienteList().size(); i++){%>
+                <tr>
+                    <td><%=i+1%></td>
+                
+                    <td><%=BdCliente.getClienteList().get(i).getNome()%></td>
+                    <td><%=BdCliente.getClienteList().get(i).getCpf()%></td>
+                    <td><%=BdCliente.getClienteList().get(i).getRg()%></td>
+                    <td><%=BdCliente.getClienteList().get(i).getEmail()%></td>
+                    <td><%=BdCliente.getClienteList().get(i).getTelefone()%></td>
+                    <td><%=BdCliente.getClienteList().get(i).getEndereco()%></td>
+                    <td>
+                    <form>
+                        <input type="hidden" name="i" value="<%=i%>">
+                        <input type="submit" name="alt" value="Alterar">
+                        <input type="submit" name="del" value="Excluir">
+                    </form>
+                </td>
+                </tr>
+                 <%   }
+            }%>
         </table>
         
         <br>
