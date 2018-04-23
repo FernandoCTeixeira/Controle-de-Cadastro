@@ -58,7 +58,7 @@
         f.setEmail(request.getParameter("email"));
         f.setTelefone(request.getParameter("telefone"));
         f.setEndereco(request.getParameter("endereco"));
-        BdFornecedor.fornecedorList.set(Integer.parseInt(request.getParameter("index")), f);
+        BdFornecedor.getFornecedorList().set(Integer.parseInt(request.getParameter("index")), f);
         response.sendRedirect(request.getRequestURI());
     }
     
@@ -140,12 +140,17 @@
         </fieldset>
                     
         <hr>
-       <form>
-            Pesquisar
-            <br>
-            <input type="text" style = "border: 1px solid #00ff00;" name="parametro"/>
-            <input type="submit" name="bus" value="Buscar"/>
-       </form>
+       
+         
+          
+            <form>
+               Pesquisar
+                <br>
+                <td><input type="text" style = "border: 1px solid #00ff00;" name="parametro"/></td>
+                <td><input type="submit" name="bus" value="Buscar"/></td>
+            </form>
+          
+       
        
         <table border="1" >
             <tr><th>Indice</th><th>Nome</th><th>Razão Social</th><th>Cnpj</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>-</th></tr>
