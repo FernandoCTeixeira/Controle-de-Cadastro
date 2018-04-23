@@ -1,10 +1,10 @@
 <%-- 
-    Document   : home
+    Document   : cadastro de Fornecedor
     Created on : 18/04/2018, 02:43:28
-    Author     : Fernando
+    Author     : Nilson/Fernando
 --%>
 
-<!--Agora é hora dos ajustes...-->
+<!-- Ajustes  -->
 
 <%@page import="br.com.fatecpg.controlcadastro.BdFornecedor"%>
 <%@page import="br.com.fatecpg.controlcadastro.Fornecedor" %>
@@ -23,7 +23,7 @@
             
     if(request.getParameter("add") != null)
     {
-        //Fornecedor f = new Fornecedor();
+        
         f.setNome(request.getParameter("nome"));
         f.setRazaoSocial(request.getParameter("razaoSocial"));
         f.setCnpj(request.getParameter("cnpj"));
@@ -40,7 +40,7 @@
     }
     if(request.getParameter("alt") !=null)
     {
- //Fornecedor d = new Fornecedor();
+ 
         f.setNome(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getNome());
         f.setRazaoSocial(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getRazaoSocial());
         f.setCnpj(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getCnpj());
@@ -51,7 +51,7 @@
     }
     if(request.getParameter("sal") != null)
     {
-        //Cliente c = new Cliente();
+        
         f.setNome(request.getParameter("nome"));
         f.setRazaoSocial(request.getParameter("razaoSocial"));
         f.setCnpj(request.getParameter("cnpj"));
@@ -147,7 +147,7 @@
             <input type="submit" name="bus" value="Buscar"/>
        </form>
        
-        <table border="1">
+        <table border="1" >
             <tr><th>Indice</th><th>Nome</th><th>Razão Social</th><th>Cnpj</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>-</th></tr>
 <%
                 if(request.getParameter("bus") != null && request.getParameter("parametro") != null){
@@ -161,7 +161,7 @@
                       ){
             %>
             <tr>
-                <td><%=i+1%></td>
+                <td  align="center"><%=i+1%></td>
                 
                 <td><%=BdFornecedor.getFornecedorList().get(i).getNome()%></td>
                 <td><%=BdFornecedor.getFornecedorList().get(i).getRazaoSocial()%></td>
@@ -183,7 +183,7 @@
                 {
                     for(int i = 0; i < BdFornecedor.getFornecedorList().size(); i++){%>
                 <tr>
-                    <td><%=i+1%></td>
+                    <td align="center"><%=i+1%></td>
                 
                     <td><%=BdFornecedor.getFornecedorList().get(i).getNome()%></td>
                     <td><%=BdFornecedor.getFornecedorList().get(i).getRazaoSocial()%></td>
