@@ -84,10 +84,14 @@
         <link href="assets/color/default.css" rel="stylesheet">
     </head>
     <body>
-        <section main="content">
+        
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <br><br>
         <br><br><br>
+        <br>
+        <section main="content">
+        <div style = "max-width: 880px; margin: 0 auto; background-color: rgb(227, 252, 225); height: 100%; padding: 60px 90px; text-align: center;">        
+
         <center>
             
             
@@ -142,10 +146,11 @@
         <form>
             Pesquisar
             <br>
-            <input type="text" style = "border: 1px solid #00ff00;" name="parametro"/>
+            <input type="text" style = "border: 1px solid #00ff00;" name="parametro"/><br>
             <input type="submit" name="bus" value="Buscar"/>
         </form>
-        <table border="1">
+        <hr>
+        <table border="2">
             <tr><th>Indice</th><th>Nome</th><th>Cpf</th><th>Rg</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>-</th></tr>
             <%
                 if(request.getParameter("bus") != null && request.getParameter("parametro") != null){
@@ -203,6 +208,8 @@
         
         <br>
         </center>
+        </div>
+        <br>
         </section>
         <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>

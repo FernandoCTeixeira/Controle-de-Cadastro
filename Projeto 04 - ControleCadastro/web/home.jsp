@@ -35,6 +35,9 @@
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <br><br>
         <br><br><br>
+        <br>
+        <div style = "max-width: 880px; margin: 0 auto; background-color: rgb(227, 252, 225); height: 100%; padding: 60px 90px; text-align: center;">        
+
         <center>
         <h1>COLABORADORES</h1>
         <table align="center">
@@ -54,7 +57,7 @@
             <tr>
                 <td><a href="https://www.linkedin.com/in/nilson-jos%C3%A9-de-lima-46a03822/" target="_blank"><img width="200" height="200" src="assets/img/Nilson.jpg" alt=""/></a></td>
            
-                <td><a href="https://www.facebook.com/patrick.donnarumma.7" target="_blank"><img width="200" height="200" src="assets/img/AvataR.jpg" alt=""/></a></td>
+                <td><a href="https://www.facebook.com/patrick.donnarumma.7" target="_blank"><img width="200" height="200" src="assets/img/mister m.jpg" alt=""/></a></td>
             </tr>
             <tr>
                 <td><a href="https://www.linkedin.com/in/nilson-jos%C3%A9-de-lima-46a03822/" target="_blank"><h3>Nilson Lima</h3></a></td>
@@ -68,6 +71,8 @@
         <br><br>
  
         </center>
+        </div>
+        <br>
         </section>
         <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>
