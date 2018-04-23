@@ -12,9 +12,18 @@
 <!DOCTYPE html>
 
 <%
+     int index = 0;
+    Fornecedor f = new Fornecedor();
+    f.setNome("");
+    f.setRazaoSocial("");
+    f.setCnpj("");
+    f.setEmail("");
+    f.setTelefone("");
+    f.setEndereco ("");
+            
     if(request.getParameter("add") != null)
     {
-        Fornecedor f = new Fornecedor();
+        //Fornecedor f = new Fornecedor();
         f.setNome(request.getParameter("nome"));
         f.setRazaoSocial(request.getParameter("razaoSocial"));
         f.setCnpj(request.getParameter("cnpj"));
@@ -29,8 +38,30 @@
         BdFornecedor.getFornecedorList().remove(Integer.parseInt(request.getParameter("i")));
         response.sendRedirect(request.getRequestURI());
     }
-
-
+    if(request.getParameter("alt") !=null)
+    {
+ //Fornecedor d = new Fornecedor();
+        f.setNome(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getNome());
+        f.setRazaoSocial(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getRazaoSocial());
+        f.setCnpj(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getCnpj());
+        f.setEmail(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getEmail());
+        f.setTelefone(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getTelefone());
+        f.setEndereco(BdFornecedor.getFornecedorList().get(Integer.parseInt(request.getParameter("i"))).getEndereco());
+        index = Integer.parseInt(request.getParameter("i"));
+    }
+    if(request.getParameter("sal") != null)
+    {
+        //Cliente c = new Cliente();
+        f.setNome(request.getParameter("nome"));
+        f.setRazaoSocial(request.getParameter("razaoSocial"));
+        f.setCnpj(request.getParameter("cnpj"));
+        f.setEmail(request.getParameter("email"));
+        f.setTelefone(request.getParameter("telefone"));
+        f.setEndereco(request.getParameter("endereco"));
+        BdFornecedor.fornecedorList.set(Integer.parseInt(request.getParameter("index")), f);
+        response.sendRedirect(request.getRequestURI());
+    }
+    
 %>
 <html>
     <head>
@@ -62,26 +93,75 @@
         <center>
         <h1>CADASTRO DE FORNECEDOR</h1>
         <fieldset>
-            <lengend>Incluir Fornecedor</lengend>
+            <%
+                      if(request.getParameter("alt") != null)
+                      {
+                    %>
+                        <lengend>Alterar Dados do Fornecedor</lengend>
+                    <%
+                      }
+                      else
+                      {
+                    %>
+                        <lengend>Incluir Fornecedor</lengend>
+                    <%
+                      }
+                    %>
+           
             <form>
                 <br>
                 <table align="center">
-                    <tr><th>Nome:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="nome"/></td></tr>
-                    <tr><th>Razão Social:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="razaoSocial"/></td></tr>
-                    <tr><th>Cnpj:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="cnpj"/></td></tr>
-                    <tr><th>Email:</th><td><input type="email" style = "border: 1px solid #00ff00;" name="email"/></td></tr>
-                    <tr><th>Telefone:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="telefone"/></td></tr>
-                    <tr><th>Endereço:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="endereco"/></td></tr>
-                    <tr align="center"><td colspan="2"><input type="submit" name="add" value="Adicionar"/></td></tr>
+                    <tr><th>Nome:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="nome" value="<%= f.getNome() %>"/></td></tr>
+                    <tr><th>Razão Social:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="razaoSocial" value="<%= f.getRazaoSocial() %>"/></td></tr>
+                    <tr><th>Cnpj:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="cnpj" value="<%= f.getCnpj() %>"/></td></tr>
+                    <tr><th>Email:</th><td><input type="email" style = "border: 1px solid #00ff00;" name="email" value="<%= f.getEmail()%>"/></td></tr>
+                    <tr><th>Telefone:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="telefone" value="<%= f.getTelefone()%>"/></td></tr>
+                    <tr><th>Endereço:</th><td><input type="text" style = "border: 1px solid #00ff00;" name="endereco" value="<%= f.getEndereco()%>"/></td></tr>
+              <%
+                      if(request.getParameter("alt") != null)
+                      {
+              %>
+                        <tr align="center"><td colspan="2">
+                                <input type="submit" name="sal" value="Salvar"/>
+                                <input type="hidden" name="index" value="<%=index%>">
+                            </td></tr>
+                    <%
+                      }
+                      else
+                      {
+                    %>
+                     <tr align="center"><td colspan="2"><input type="submit" name="add" value="Adicionar"/></td></tr>
+                    <%
+                      }
+                    %>  
+                 
                 </table>
             </form>
         </fieldset>
+                    
         <hr>
+       <form>
+            Pesquisar
+            <br>
+            <input type="text" style = "border: 1px solid #00ff00;" name="parametro"/>
+            <input type="submit" name="bus" value="Buscar"/>
+       </form>
+       
         <table border="1">
             <tr><th>Indice</th><th>Nome</th><th>Razão Social</th><th>Cnpj</th><th>Email</th><th>Telefone</th><th>Endereço</th><th>-</th></tr>
-            <%for(int i = 0; i < BdFornecedor.getFornecedorList().size(); i++){%>
+<%
+                if(request.getParameter("bus") != null && request.getParameter("parametro") != null){
+                for(int i = 0; i < BdFornecedor.getFornecedorList().size(); i++){
+                    if(request.getParameter("parametro").equals(BdFornecedor.getFornecedorList().get(i).getNome())||
+                       request.getParameter("parametro").equals(BdFornecedor.getFornecedorList().get(i).getRazaoSocial())||
+                       request.getParameter("parametro").equals(BdFornecedor.getFornecedorList().get(i).getCnpj())||
+                       request.getParameter("parametro").equals(BdFornecedor.getFornecedorList().get(i).getEmail())||
+                       request.getParameter("parametro").equals(BdFornecedor.getFornecedorList().get(i).getTelefone())||
+                       request.getParameter("parametro").equals(BdFornecedor.getFornecedorList().get(i).getEndereco())
+                      ){
+            %>
             <tr>
-                <td><%=i%></td>
+                <td><%=i+1%></td>
                 
                 <td><%=BdFornecedor.getFornecedorList().get(i).getNome()%></td>
                 <td><%=BdFornecedor.getFornecedorList().get(i).getRazaoSocial()%></td>
@@ -89,17 +169,40 @@
                 <td><%=BdFornecedor.getFornecedorList().get(i).getEmail()%></td>
                 <td><%=BdFornecedor.getFornecedorList().get(i).getTelefone()%></td>
                 <td><%=BdFornecedor.getFornecedorList().get(i).getEndereco()%></td>
-                
                 <td>
                     <form>
                         <input type="hidden" name="i" value="<%=i%>">
+                        <input type="submit" name="alt" value="Alterar">
                         <input type="submit" name="del" value="Excluir">
-                        <input type="button" name="alterar" value="Alterar">
                     </form>
                 </td>
             </tr>
-            <%}%>
+            <%      } }
+                }
+                else
+                {
+                    for(int i = 0; i < BdFornecedor.getFornecedorList().size(); i++){%>
+                <tr>
+                    <td><%=i+1%></td>
+                
+                    <td><%=BdFornecedor.getFornecedorList().get(i).getNome()%></td>
+                    <td><%=BdFornecedor.getFornecedorList().get(i).getRazaoSocial()%></td>
+                    <td><%=BdFornecedor.getFornecedorList().get(i).getCnpj()%></td>
+                    <td><%=BdFornecedor.getFornecedorList().get(i).getEmail()%></td>
+                    <td><%=BdFornecedor.getFornecedorList().get(i).getTelefone()%></td>
+                    <td><%=BdFornecedor.getFornecedorList().get(i).getEndereco()%></td>
+                    <td>
+                    <form>
+                        <input type="hidden" name="i" value="<%=i%>">
+                        <input type="submit" name="alt" value="Alterar">
+                        <input type="submit" name="del" value="Excluir">
+                    </form>
+                </td>
+                </tr>
+                 <%   }
+            }%>
         </table>
+
         <br>
         </center>
         </section>
