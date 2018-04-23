@@ -37,7 +37,7 @@
         <br><br><br>
         <center>
         <h1>COLABORADORES</h1>
-        <table>
+        <table align="center">
             <tr>
             <tr>
                 <td><a href="https://www.linkedin.com/in/fct0316/" target="_blank"><img width="200" height="200" src="assets/img/FernandoCostA.jpg" alt=""/></a></td>
